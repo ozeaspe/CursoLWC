@@ -1,0 +1,50 @@
+<template>
+    <lightning-card title="Cadastro" icon-name="custom:custom14">
+      <div class="slds-m-around_medium">
+
+        <template if:true={sexoSelecionado}>
+        <template if:true={sexo}>
+        <lightning-avatar src="https://www.lightningdesignsystem.com/assets/images/avatar1.jpg"></lightning-avatar>
+      </template>
+      <template if:false={sexo}>
+        <lightning-avatar src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg"></lightning-avatar>
+      </template>
+    </template>
+
+        <p>Nome: {nomeCompleto}</p>
+        <p>Idade: {idade}</p>
+        <p>É estudante: {estudante}</p>
+        <p>Série: {serie}</p>
+        <p>Sexo: {sexo}</p>
+
+        <lightning-input label="Name" value={nomeCompleto} onchange={changeHandler} placeholder="Digite seu nome"></lightning-input>
+        <lightning-input type="number" label="Idade:" value={idade} onchange={changeHandlerIdade}></lightning-input>
+        <lightning-input type="checkbox" label="É estudante" name="input1" checked={estudante} onchange={changeHandlerEstudante}></lightning-input>
+        <br/>
+        <template if:true={estudante}>
+          <lightning-combobox
+          name="serie"
+          label="Qual a sua Série"
+          value={serie}
+          placeholder="Select Progress"
+          options={optionsSeries}
+          onchange={handleChangeSerie} ></lightning-combobox>
+        </template>
+        <br/>
+        <lightning-radio-group 
+                          name="sexo"
+                          label="Qual seu sexo"
+                          options={optionsSexo}
+                          value={sexoSelecionado}
+                          type="radio"
+                          onchange={handleChangeSexo}></lightning-radio-group>
+        <br/>
+        <lightning-button-group>
+          <lightning-button variant="brand" label="Limpar Campos" title="Clear Fields" onclick={handleClick2} class="slds-m-left_x-small"></lightning-button>
+          <lightning-button variant="success" label="Salvar" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+      </lightning-button-group>
+       
+        
+      </div>
+    </lightning-card>
+  </template>
