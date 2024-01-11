@@ -9,17 +9,44 @@
       <template if:false={sexo}>
         <lightning-avatar src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg"></lightning-avatar>
       </template>
+      <lightning-helptext content="Apareceu seu avatar de acordo com o sexo escolhido"></lightning-helptext>
     </template>
 
-        <p>Nome: {nomeCompleto}</p>
-        <p>Idade: {idade}</p>
-        <p>É estudante: {estudante}</p>
-        <p>Série: {serie}</p>
-        <p>Sexo: {sexo}</p>
+    <lightning-layout>
+      <lightning-layout-item size="3" padding="around-small">
+          <div class="custom-box slds-box slds-p-around_medium slds-text-align_center"><p>Nome: {nomeCompleto}</p></div>
+      </lightning-layout-item>
+      <lightning-layout-item size="3" padding="around-small">
+          <div class="custom-box slds-box slds-p-around_medium slds-text-align_center"><p>Idade: {idade}</p></div>
+      </lightning-layout-item>
+      <lightning-layout-item size="3" padding="around-small">
+          <div class="custom-box slds-box slds-p-around_medium slds-text-align_center"><p>É estudante: {estudante}</p></div>
+      </lightning-layout-item>
+      <lightning-layout-item size="3" padding="around-small">
+          <div class="custom-box slds-box slds-p-around_medium slds-text-align_center"><p>Série: {serie}</p></div>
+      </lightning-layout-item>
+    </lightning-layout>
 
+  
+<lightning-layout multiple-rows>
+  <lightning-layout-item size="4" small-device-size="6" medium-device-size="4" padding="around-small">
+      <div>
         <lightning-input label="Name" value={nomeCompleto} onchange={changeHandler} placeholder="Digite seu nome"></lightning-input>
+      </div>
+  </lightning-layout-item>
+  <lightning-layout-item size="4" small-device-size="4" medium-device-size="2" padding="around-small">
+      <div>
         <lightning-input type="number" label="Idade:" value={idade} onchange={changeHandlerIdade}></lightning-input>
+      </div>
+  </lightning-layout-item>
+  <lightning-layout-item size="4" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
+      <div class="slds-m-top_large">
         <lightning-input type="checkbox" label="É estudante" name="input1" checked={estudante} onchange={changeHandlerEstudante}></lightning-input>
+      </div>
+    </lightning-layout-item>
+</lightning-layout>
+    
+
         <br/>
         <template if:true={estudante}>
           <lightning-combobox
@@ -43,8 +70,17 @@
           <lightning-button variant="brand" label="Limpar Campos" title="Clear Fields" onclick={handleClick2} class="slds-m-left_x-small"></lightning-button>
           <lightning-button variant="success" label="Salvar" title="Primary action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
       </lightning-button-group>
-       
-        
       </div>
+
+      <lightning-input label="Digite sua Rua" value={rua} onchange={changeHandlerRua} placeholder="Digite sua rua"></lightning-input>
+      <br/>
+      <lightning-input label="Digite sua Cidade" value={cidade} onchange={changeHandlerCidade} placeholder="Digite seu Cidade"></lightning-input>
+      <br/>
+      <lightning-input label="Digite seu País" value={pais} onchange={changeHandlerPais} placeholder="Digite seu País"></lightning-input>
+      <br/>
+      <lightning-button variant="brand" label="Buscar" title="Buscar" onclick={handleClickbuscar} class="slds-m-left_x-small"></lightning-button>
+      <br/>
+      <lightning-map map-markers={mapMarkers} zoom-level={zoomLevel}> </lightning-map>
+
     </lightning-card>
   </template>

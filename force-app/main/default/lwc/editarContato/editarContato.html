@@ -1,0 +1,21 @@
+<template>
+    
+    <lightning-card  variant="Narrow"  title="Editar Contato" icon-name="standard:contact">
+        <div class="slds-m-around_medium">
+        <lightning-record-edit-form object-api-name="Contact" record-id={recordId} onsuccess={handleContact}>
+        
+            <lightning-input-field field-name="Name"> </lightning-input-field>
+            <lightning-input-field field-name="Phone"> </lightning-input-field>
+            <lightning-input-field field-name="AccountId"> </lightning-input-field>
+            <lightning-button
+                class="slds-m-top_small"
+                type="submit"
+                label="Editar"
+            >
+            </lightning-button>
+        </lightning-record-edit-form>
+    </div>
+    </lightning-card>
+
+    
+</template>

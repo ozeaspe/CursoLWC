@@ -9,6 +9,12 @@ export default class HelloWorld extends LightningElement {
   sexo = false;
   sexoSelecionado;
 
+  rua;
+  cidade;
+  pais;
+  mapMarkers = [];
+  zoomLevel = 17;
+
   changeHandler(event) {
     this.nomeCompleto = event.target.value;
   }
@@ -67,6 +73,32 @@ handleChangeSexo(event) {
   }else{
     this.sexo = false
   }
+}
+
+changeHandlerRua(event) {
+  this.rua = event.target.value;
+}
+
+changeHandlerCidade(event) {
+  this.cidade = event.target.value;
+}
+
+changeHandlerPais(event) {
+  this.pais = event.target.value;
+}
+
+handleClickbuscar(event){
+  if(this.pais){
+    this.mapMarkers = [
+      {
+          location: {
+              Street: this.rua,
+              City: this.cidade,
+              Country: this.pais,
+          },
+        }
+    ];
+  }  
 }
 
 }
