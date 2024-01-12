@@ -31,17 +31,17 @@
 <lightning-layout multiple-rows>
   <lightning-layout-item size="4" small-device-size="6" medium-device-size="4" padding="around-small">
       <div>
-        <lightning-input label="Name" value={nomeCompleto} onchange={changeHandler} placeholder="Digite seu nome"></lightning-input>
+        <lightning-input label="Name" value={nomeCompleto} onchange={changeHandler} placeholder="Digite seu nome" name="nomeCompleto"></lightning-input>
       </div>
   </lightning-layout-item>
   <lightning-layout-item size="4" small-device-size="4" medium-device-size="2" padding="around-small">
       <div>
-        <lightning-input type="number" label="Idade:" value={idade} onchange={changeHandlerIdade}></lightning-input>
+        <lightning-input type="number" label="Idade:" value={idade} onchange={changeHandler} name="idade"></lightning-input>
       </div>
   </lightning-layout-item>
   <lightning-layout-item size="4" small-device-size="6" medium-device-size="4" large-device-size="3" padding="around-small">
       <div class="slds-m-top_large">
-        <lightning-input type="checkbox" label="É estudante" name="input1" checked={estudante} onchange={changeHandlerEstudante}></lightning-input>
+        <lightning-input type="checkbox" label="É estudante" name="estudante" checked={estudante} onchange={changeHandlerChecked}></lightning-input>
       </div>
     </lightning-layout-item>
 </lightning-layout>

@@ -1,0 +1,49 @@
+<aura:component implements="force:lightningQuickActionWithoutHeader,force:hasRecordId">
+
+   
+    <aura:attribute name="recordId" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <div class="slds-modal__container">
+        <div class="slds-modal__header">
+          <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Buscar Endereço</h1>
+        </div>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+            <lightning:layout multipleRows="true">
+
+                <!--LInha 1-->
+                <lightning:layoutItem padding="around-small" size="6">
+                    <lightning:input type="text" name="cep" label="CEP" />
+                </lightning:layoutItem>
+                
+                <lightning:layoutItem padding="around-small" size="6" class="botaoIcone">
+                    <lightning:buttonIcon iconName="utility:search" variant="bare" alternativeText="Busca"/>
+                </lightning:layoutItem>
+                
+
+                <!--LInha 2-->
+                <lightning:layoutItem padding="around-small" size="6">
+                    <lightning:input type="text" name="rua" label="Rua" />
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="6">
+                    <lightning:input type="text" name="bairro" label="Bairro" />
+                </lightning:layoutItem>
+
+                <!--LInha 3-->
+                <lightning:layoutItem padding="around-small" size="6">
+                    <lightning:input type="text" name="cidade" label="Cidade" />
+                </lightning:layoutItem>
+                <lightning:layoutItem padding="around-small" size="6">
+                    <lightning:input type="text" name="uf" label="UF" />
+                </lightning:layoutItem>
+
+            </lightning:layout >
+        </div>
+        <div class="slds-modal__footer">
+          <button class="slds-button slds-button_neutral" aria-label="Cancel and close">Cancelar</button>
+          <button class="slds-button slds-button_brand">Salvar</button>
+        </div>
+      </div>
+
+</aura:component>

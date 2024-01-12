@@ -1,0 +1,15 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+
+<lightning:card title="Criar Entrega">
+    <p class="slds-p-horizontal_small">
+        <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Entrega__c" onsubmit="{!c.handleSubmit}"     onsuccess="{!c.handleSuccess}">
+            <lightning:inputField fieldName="Account__c" />
+            <lightning:inputField fieldName="Tipos_de_Entrega__c" />
+            <lightning:inputField fieldName="Prioridade__c" />
+            <lightning:inputField fieldName="Observacao__c" />
+            <lightning:button class="slds-m-top_small" type="submit" label="Criar" />
+    </lightning:recordEditForm>
+    </p>
+</lightning:card>
+
+</aura:component>
