@@ -2,11 +2,19 @@
     <lightning-card title="Toast" icon-name="custom:custom14">
         <div class="slds-m-around_medium">
 
-            <lightning-button label="Mostrar Aviso" onclick={showToastAviso}>
+            <lightning-button
+                onclick={handleClick}
+                aria-haspopup="dialog"
+                label="Open My Modal">
+            </lightning-button>
+            <p>Result: {result}</p>
+            
+            <lightning-button label="Aviso" onclick={showToastAviso}>
             </lightning-button>
 
-            <lightning-button label="Mostrar erro" onclick={showToastErro}>
+            <lightning-button label="Erro" onclick={showToastErro}>
             </lightning-button>
+            
 
         </div>
     </lightning-card>
