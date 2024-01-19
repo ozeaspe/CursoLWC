@@ -1,0 +1,51 @@
+<template>
+    <lightning-card title="Formulário" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <template for:each={formularios} for:item="form" for:index="index">
+                <div key={form.id}>
+
+                    <lightning-input 
+                        type="text" 
+                        label="Nome" 
+                        value={form.Name} 
+                        onchange={handlerChange} 
+                        data-index={index}
+                        name="Name">
+                    </lightning-input>
+
+                    <lightning-input 
+                        type="number" 
+                        label="Idade" 
+                        value={form.Idade__c} 
+                        onchange={handlerChange} 
+                        data-index={index}
+                        name="Idade__c">
+                    </lightning-input>
+
+                    <lightning-button-icon 
+                        icon-name="utility:delete"    
+                        alternative-text="Delete"   
+                        class="slds-m-left_xx-small" 
+                        title="Delete"
+                        onclick={handleDeleteForm}
+                        data-index={index}>
+                    </lightning-button-icon>
+                </div>
+            </template>
+
+            <lightning-button 
+                variant="brand" 
+                label="Adicionar"  
+                onclick={addFormulario} 
+                class="slds-m-left_x-small">
+            </lightning-button>
+
+            <lightning-button 
+                variant="brand" 
+                label="Salvar"  
+                onclick={salvarFormulario} 
+                class="slds-m-left_x-small">
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

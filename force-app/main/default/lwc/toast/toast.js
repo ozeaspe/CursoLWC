@@ -1,6 +1,6 @@
 import { LightningElement } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import MeuModal from 'c/modal';
+import MeuModal from 'c/aula18modal';
 
 
 export default class Toast extends LightningElement {
@@ -11,13 +11,19 @@ export default class Toast extends LightningElement {
         this.showToast('Sucesso', 'Tela Iniciada com sucesso', 'success');
      } 
 
-     handleClick() {
-        this.result = MeuModal.open({
+     async handleClick() {
+        this.result = await MeuModal.open(
+            {
+           
             size: 'large',
             description: 'Accessible description of modals purpose',
-            content: 'Passed into content api',
+            content: 'Abrir o Modal a partir de um outro componente',
+            options: [
+                { id: 1, label: 'Option 1', value : 1 },
+                { id: 2, label: 'Option 2', value : 2},
+              ]
         });
-    }    
+    }
 
     showToastAviso(){
         this.showToast('Aviso', 'Não pode fazer isso', 'warning');

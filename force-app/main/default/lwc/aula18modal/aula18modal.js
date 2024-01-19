@@ -3,8 +3,19 @@ import LightningModal from 'lightning/modal';
 
 export default class Aula18modal extends LightningModal {
     @api content;
+    @api options = [];
 
     handleOkay() {
-        this.close('fechou');
+        this.disableClose = false;
+        this.close('Fechou');
+    }
+
+    
+
+    handleOptionClick(e) {
+        const { target } = e;
+        const { id, value } = target.dataset;
+        this.disableClose = false;
+        this.close(id);
     }
 }
