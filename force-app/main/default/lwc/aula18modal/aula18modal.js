@@ -6,7 +6,6 @@ export default class Aula18modal extends LightningModal {
     @api options = [];
 
     handleOkay() {
-        this.disableClose = false;
         this.close('Fechou');
     }
 
@@ -15,7 +14,6 @@ export default class Aula18modal extends LightningModal {
     handleOptionClick(e) {
         const { target } = e;
         const { id, value } = target.dataset;
-        this.disableClose = false;
         this.close(id);
     }
 }
